@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hiberante/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.karpukhin.hibernatedemo.model">
+    <class name="Job" table="JOBS">
+        <id name="name" column="NAME" length="25"/>
+        <property name="started" type="org.joda.time.contrib.hibernate.PersistentDateTime"
+                  column="STARTED" not-null="true"/>
+        <property name="finished" type="org.joda.time.contrib.hibernate.PersistentDateTime"
+                  column="FINISHED" not-null="true"/>
+        <property name="state" column="STATE" type="org.karpukhin.hibernatedemo.dao.hibernate.util.JobStateEnumType" length="20" not-null="true"/>
+    </class>
+
+    <!-- Returns job with given name -->
+    <query name="getJobByName">
+        SELECT j
+        FROM Job j
+        WHERE j.name = :name
+    </query>
+
+    <!-- Returns list of all jobs-->
+    <query name="getJobs">
+        SELECT j
+        FROM Job j
+        ORDER BY j.name
+    </query>
+
+</hibernate-mapping>
