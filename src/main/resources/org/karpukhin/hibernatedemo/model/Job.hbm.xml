@@ -19,7 +19,7 @@
         WHERE j.name = :name
     </query>
 
-    <!-- Returns list of all jobs-->
+    <!-- Returns list of all jobs ordered by job name-->
     <query name="getJobs">
         SELECT j
         FROM Job j

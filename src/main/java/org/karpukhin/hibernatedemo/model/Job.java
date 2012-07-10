@@ -18,6 +18,13 @@ public class Job {
     public Job() {
     }
 
+    /**
+     * Creates new instance of {@code Job} with given name, start time, finish time and state
+     * @param name     job name
+     * @param started  date and time of job starting
+     * @param finished date and time of job finishing
+     * @param state    job state
+     */
     public Job(String name, DateTime started, DateTime finished, JobState state) {
         this.name = name;
         this.started = started;

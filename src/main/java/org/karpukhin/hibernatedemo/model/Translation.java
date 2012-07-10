@@ -8,9 +8,17 @@ public class Translation {
     private String code;
     private String text;
 
+    /**
+     * Default constructor
+     */
     public Translation() {
     }
 
+    /**
+     * Creates new instance of {@code Translation} with given code and text
+     * @param code translation code
+     * @param text translation text
+     */
     public Translation(String code, String text) {
         this.code = code;
         this.text = text;
@@ -39,8 +47,8 @@ public class Translation {
 
         Translation that = (Translation) o;
 
-        if (!code.equals(that.code)) return false;
-        if (!text.equals(that.text)) return false;
+        if (code != null ? !code.equals(that.code) : that.code != null) return false;
+        if (text != null ? !text.equals(that.text) : that.text != null) return false;
 
         return true;
     }
